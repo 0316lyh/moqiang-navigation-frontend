@@ -1,3 +1,7 @@
+<template>
+  <router-view/>
+</template>
+
 <script>
 export default {
   name: 'App',
@@ -7,9 +11,6 @@ export default {
 }
 </script>
 
-<template>
-  <router-view/>
-</template>
 
 <style scoped>
 /*header {

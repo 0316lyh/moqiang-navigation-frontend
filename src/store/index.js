@@ -19,7 +19,8 @@ const store = new Vuex.Store({
 
             loginUserId: -1, // 已登录账号的id
             // 当前在哪个位置
-            index: 'home'
+            index: 'home',
+            topNum: 5,
         }
     },
     mutations: {

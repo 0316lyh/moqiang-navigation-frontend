@@ -9,6 +9,8 @@ import Vuex from "vuex";
 
 axios.defaults.baseURL = "http://localhost:8082"
 
+//css
+import "/src/assets/css/common.css"
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
