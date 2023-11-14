@@ -21,6 +21,7 @@ const store = new Vuex.Store({
             // 当前在哪个位置
             index: 'home',
             topNum: 5,
+            pageSize: 3,
         }
     },
     mutations: {

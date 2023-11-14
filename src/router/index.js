@@ -21,10 +21,10 @@ const router = new VueRouter({
                     }
                 },
                 {
-                    path: 'commonlyused',
-                    name: 'commonlyused',
+                    path: 'community',
+                    name: 'community',
                     components: {
-                        commonlyUsed: () => import('../components/home/CommonlyUsed.vue')
+                        community: () => import('../components/home/Community.vue')
                     }
                 },
                 {

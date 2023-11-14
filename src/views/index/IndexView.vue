@@ -1,26 +1,4 @@
 <template>
-  <!--  <div>
-      <el-tabs tab-position="top" v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane label="首页" name="home">
-          <router-view name="home"/>
-        </el-tab-pane>
-        <el-tab-pane label="常用" name="commonlyused">
-          <router-view name="commonlyUsed"/>
-        </el-tab-pane>
-        <el-tab-pane label="博客" name="blog">
-          <router-view name="blog"/>
-        </el-tab-pane>
-        <el-tab-pane label="开发" name="dev">
-          <router-view name="dev"/>
-        </el-tab-pane>
-        <el-tab-pane label="工具" name="tool">
-          <router-view name="tool"/>
-        </el-tab-pane>
-        <el-tab-pane label="导航" name="nav">
-          <router-view name="nav"/>
-        </el-tab-pane>
-      </el-tabs>
-    </div>-->
 
   <el-container>
     <el-header>
@@ -28,7 +6,7 @@
     </el-header>
     <el-main>
       <router-view name="home"/>
-      <router-view name="commonlyUsed"/>
+      <router-view name="community"/>
       <router-view name="blog"/>
       <router-view name="dev"/>
       <router-view name="tool"/>

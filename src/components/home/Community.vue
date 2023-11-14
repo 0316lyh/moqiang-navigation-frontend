@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <el-row>
       <el-col :span="2">
         <div class="grid-content bg-purple">
@@ -69,7 +68,7 @@
 import axios from "axios";
 
 export default {
-  name: "Dev",
+  name: "Community",
   data() {
     return {
       fromData: [],
@@ -84,11 +83,9 @@ export default {
     this.getTotal();
   },
   methods: {
-    // handleClick() {
-    //   this.$store.dispatch("increment")
-    // }
+    // 获取数据
     getAll() {
-      axios.get('/website/getbytoptype/' + 'dev/' + this.pageSize + '/' + this.currentPage).then((res) => {
+      axios.get('/website/getbytoptype/' + 'community/' + this.pageSize + '/' + this.currentPage).then((res) => {
         this.fromData = res.data.data;
         console.log(this.fromData);
       })
@@ -113,7 +110,7 @@ export default {
     },
     // 获取分页总条数
     getTotal() {
-      axios.get('/website/getTotal/' + 'dev').then((res) => {
+      axios.get('/website/getTotal/' + 'community').then((res) => {
         this.total = res.data.data;
         console.log("total: " + this.total);
       })
@@ -121,7 +118,7 @@ export default {
     // 当前页码发生变化
     handleCurrentChange(currentPage) {
       console.log(currentPage);
-      axios.get('/website/getbytoptype/' + 'dev/' + this.pageSize + '/' + currentPage).then((res) => {
+      axios.get('/website/getbytoptype/' + 'community/' + this.pageSize + '/' + currentPage).then((res) => {
         this.currentPage = currentPage;
         this.fromData = res.data.data;
         console.log(this.fromData);
@@ -136,4 +133,6 @@ export default {
 .clickable-avatar {
   cursor: pointer;
 }
+
+
 </style>
