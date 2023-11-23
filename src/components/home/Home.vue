@@ -18,7 +18,7 @@
               <template v-slot="scope">
                 <div class="block">
                   <el-avatar shape="square" :size="70"
-                             :src="'https://moqiang-navigation-1318187204.cos.ap-guangzhou.myqcloud.com/icon%2F' +  scope.row.id+ '.jpg'"
+                             :src="scope.row.icon"
                              class="clickable-avatar"
                              @click.native="toWebsite(scope.row.url)"/>
                 </div>
@@ -104,6 +104,7 @@ export default {
 </script>
 
 <style scoped>
+/*头像可点击*/
 .clickable-avatar {
   cursor: pointer;
 }

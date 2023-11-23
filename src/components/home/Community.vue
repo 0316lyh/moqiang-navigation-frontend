@@ -54,6 +54,7 @@
     </el-row>
     <br>
     <el-pagination
+        :hide-on-single-page="value"
         :page-size="pageSize"
         layout="prev, pager, next"
         :total="total"
@@ -75,6 +76,7 @@ export default {
       total: 0,
       pageSize: this.$store.state.pageSize,
       currentPage: 1,
+      value: true,
     }
   },
   mounted() {
@@ -122,6 +124,12 @@ export default {
         this.currentPage = currentPage;
         this.fromData = res.data.data;
         console.log(this.fromData);
+      })
+    },
+    getPageSize() {
+      axios.get('/system/getpagesize').then((res) => {
+        this.pageSize = res.data.data;
+        console.log("pageSize: " + this.pageSize);
       })
     }
   }

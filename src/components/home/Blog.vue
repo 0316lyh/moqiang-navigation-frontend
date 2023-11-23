@@ -53,6 +53,15 @@
         </div>
       </el-col>
     </el-row>
+    <br>
+    <el-pagination
+        :hide-on-single-page="value"
+        :page-size="pageSize"
+        layout="prev, pager, next"
+        :total="total"
+        @current-change="handleCurrentChange"
+    >
+    </el-pagination>
 
   </div>
 </template>
@@ -65,15 +74,20 @@ export default {
   data() {
     return {
       fromData: [],
+      total: 0,
+      pageSize: this.$store.state.pageSize,
+      currentPage: 1,
+      value: true,
     }
   },
   mounted() {
     // this.$store.dispatch
     this.getAll();
+    this.getTotal();
   },
   methods: {
     getAll() {
-      axios.get('/website/getbytoptype/' + 'blog').then((res) => {
+      axios.get('/website/getbytoptype/' + 'blog/' + this.pageSize + '/' + this.currentPage).then((res) => {
         this.fromData = res.data.data;
         console.log(this.fromData);
       })
@@ -95,11 +109,31 @@ export default {
     delWebsitePrefix(url) {
       // "https://javaguide.cn" ==> "javaguide.cn"
       return url.replace(/(^\w+:|^)\/\//, '');
+    },
+    // 获取分页总条数
+    getTotal() {
+      axios.get('/website/getTotal/' + 'blog').then((res) => {
+        this.total = res.data.data;
+        console.log("total: " + this.total);
+      })
+    },
+    // 当前页码发生变化
+    handleCurrentChange(currentPage) {
+      console.log(currentPage);
+      axios.get('/website/getbytoptype/' + 'blog/' + this.pageSize + '/' + currentPage).then((res) => {
+        this.currentPage = currentPage;
+        this.fromData = res.data.data;
+        console.log(this.fromData);
+      })
     }
   }
 }
 </script>
 
 <style scoped>
+/*头像可点击*/
+.clickable-avatar {
+  cursor: pointer;
+}
 
 </style>

@@ -55,6 +55,7 @@
     </el-row>
     <br>
     <el-pagination
+        :hide-on-single-page="value"
         :page-size="pageSize"
         layout="prev, pager, next"
         :total="total"
@@ -76,6 +77,7 @@ export default {
       total: 0,
       pageSize: this.$store.state.pageSize,
       currentPage: 1,
+      value: true,
     }
   },
   mounted() {
